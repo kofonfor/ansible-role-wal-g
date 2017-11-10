@@ -1,0 +1,11 @@
+- name: install golang
+  apt: name=golang-go
+
+- name: get wal-g sources
+  shell: GOPATH=/root/wal-g-gopath go get github.com/wal-g/wal-g
+
+- name: compile wal-g
+  shell: cd /root/wal-g-gopath/src/github.com/wal-g/wal-g && GOPATH=/root/wal-g-gopath make all
+
+- name: install wal-g
+  shell: cd /root/wal-g-gopath/src/github.com/wal-g/wal-g && GOPATH=/root/wal-g-gopath GOBIN=/usr/local/bin make install
