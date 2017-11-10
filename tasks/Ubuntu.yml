@@ -12,3 +12,30 @@
 
 - name: install wal-g
   shell: cd /root/wal-g-gopath/src/github.com/wal-g/wal-g && PATH=/usr/lib/go-1.9/bin:$PATH GOPATH=/root/wal-g-gopath GOBIN=/usr/local/bin make install
+
+- name: install chpst
+  apt: name=runit
+
+- name: create /etc/wal-g.d/env
+  file: state=directory dest=/etc/wal-g.d/env mode=0750 owner=root group=postgres
+
+- name: put /etc/wal-g.d/env/AWS_SECRET_ACCESS_KEY
+  template: dest=/etc/wal-g.d/env/AWS_SECRET_ACCESS_KEY src=AWS_SECRET_ACCESS_KEY
+
+- name: put /etc/wal-g.d/env/AWS_ACCESS_KEY_ID
+  template: dest=/etc/wal-g.d/env/AWS_ACCESS_KEY_ID src=AWS_ACCESS_KEY_ID
+
+- name: put /etc/wal-g.d/env/WALE_S3_PREFIX
+  template: dest=/etc/wal-g.d/env/WALE_S3_PREFIX src=WALE_S3_PREFIX
+
+- name: put /etc/wal-g.d/env/AWS_ENDPOINT
+  template: dest=/etc/wal-g.d/env/AWS_ENDPOINT src=AWS_ENDPOINT
+
+- name: put /etc/wal-g.d/env/AWS_S3_FORCE_PATH_STYLE
+  template: dest=/etc/wal-g.d/env/AWS_S3_FORCE_PATH_STYLE src=AWS_S3_FORCE_PATH_STYLE
+
+- name: put /etc/wal-g.d/env/AWS_REGION
+  template: dest=/etc/wal-g.d/env/AWS_REGION src=AWS_REGION
+
+- name: put /etc/wal-g.d/env/PGPASSWORD
+  template: dest=/etc/wal-g.d/env/PGPASSWORD src=PGPASSWORD
