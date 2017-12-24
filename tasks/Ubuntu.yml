@@ -39,3 +39,6 @@
 
 - name: put /etc/wal-g.d/env/PGPASSWORD
   template: dest=/etc/wal-g.d/env/PGPASSWORD src=PGPASSWORD
+
+- name: put /etc/cron.d/wal-g
+  template: src=wal-g dest=/etc/cron.d/wal-g
