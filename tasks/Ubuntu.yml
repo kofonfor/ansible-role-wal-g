@@ -17,7 +17,7 @@
   apt: name=runit
 
 - name: create /etc/wal-g.d/env
-  file: state=directory dest=/etc/wal-g.d/env mode=0750 owner=root group=postgres
+  file: state=directory dest=/etc/wal-g.d/env mode=0750 owner=root group={{ wal_g_postgres_user }}
 
 - name: put /etc/wal-g.d/env/AWS_SECRET_ACCESS_KEY
   template: dest=/etc/wal-g.d/env/AWS_SECRET_ACCESS_KEY src=AWS_SECRET_ACCESS_KEY

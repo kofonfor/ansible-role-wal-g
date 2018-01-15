@@ -1,3 +1,5 @@
 wal_g_version: v0.1.2
 golang_version: 1.9
 wal_g_cron_timespec: "10 04 * * *"
+wal_g_postgres_user: postgres
+wal_g_postgres_db_location: /var/lib/postgresql/9.6/main/

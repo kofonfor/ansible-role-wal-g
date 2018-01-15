@@ -1,1 +1,1 @@
-{{ wal_g_cron_timespec }}   postgres   /usr/bin/chpst -e /etc/wal-g.d/env /usr/local/bin/wal-g backup-push /var/lib/postgresql/9.6/main/
+{{ wal_g_cron_timespec }}   {{ wal_g_postgres_user }}   /usr/bin/chpst -e /etc/wal-g.d/env /usr/local/bin/wal-g backup-push {{ wal_g_postgres_db_location }}
